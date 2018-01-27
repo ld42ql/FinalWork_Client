@@ -27,7 +27,8 @@ namespace FinalWork_Client
         public EditWindow(Employee employee)
         {
             InitializeComponent();
-            this.DataContext = test.ViewEmployee(employee.ID);
+            this.DataContext = employee;
+
         }
     }
 }

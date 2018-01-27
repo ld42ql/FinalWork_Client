@@ -23,5 +23,6 @@
             <TextBox Margin="5, 0" Text="{Binding Salary}"/>
 
         </StackPanel>
+        <Button x:Name="ApplyBtn" Content="Сохранить" Grid.Row="1" Visibility="Collapsed"></Button>
     </Grid>
 </Window>

@@ -25,7 +25,7 @@ namespace FinalWork_Client.Models
         /// <returns></returns>
         private string ConnectionUrl(string urlMetod)
         {
-            webClient.Encoding = System.Text.Encoding.UTF8;
+            webClient.Encoding = Encoding.UTF8;
             return $"http://localhost:62975/{urlMetod}";
         }
 
@@ -36,7 +36,6 @@ namespace FinalWork_Client.Models
         public ObservableCollection<Employee> ViewList()
         {
             var temp = webClient.DownloadString(ConnectionUrl("getList/"));
-
             return JsonConvert.DeserializeObject<ObservableCollection<Employee>>(temp);
         }
 
@@ -49,6 +48,17 @@ namespace FinalWork_Client.Models
         {
             var temp = webClient.DownloadString($"{ConnectionUrl("getList/")}{id}");
             return JsonConvert.DeserializeObject<Employee>(temp);
+        }
+
+        /// <summary>
+        /// Добавить работника в таблицу
+        /// </summary>
+        /// <param name="employee"></param>
+        public void InsetrtEmployee(Employee employee)
+        {
+            webClient.Headers.Add("Content-Type", "application/json");
+
+            webClient.UploadString(ConnectionUrl("add/"), JsonConvert.SerializeObject(employee, Formatting.Indented));
         }
     }
 }

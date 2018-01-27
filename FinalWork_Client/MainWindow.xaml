@@ -16,7 +16,7 @@
             <ListView x:Name="listView" ItemsSource="{Binding}" >
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn x:Name="IdClm" Header="Номер" Width="50" DisplayMemberBinding="{Binding ID, Mode=OneWay}"/>
+                        <GridViewColumn Header="Номер" Width="50" DisplayMemberBinding="{Binding ID, Mode=OneWay}"/>
                         <GridViewColumn Header="ФИО" Width="140"  DisplayMemberBinding="{Binding FIO}"/>
                         <GridViewColumn Header="Отдел" Width="100"  DisplayMemberBinding="{Binding NameDepartmet}"/>
                         <GridViewColumn Header="Запрлата" Width="90"  DisplayMemberBinding="{Binding Salary}"/>
@@ -24,5 +24,6 @@
                 </ListView.View>
             </ListView>
         </ScrollViewer>
+        <Button x:Name="InsertBtn" Grid.Row="1" Content="Добавить"></Button>
     </Grid>
 </Window>

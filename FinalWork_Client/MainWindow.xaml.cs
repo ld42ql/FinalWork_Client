@@ -34,7 +34,16 @@ namespace FinalWork_Client
             listView.MouseDoubleClick +=
                 delegate
                 {
-                    new EditWindow(listView.SelectedItem as Employee).ShowDialog();
+                    new EditWindow(test.ViewEmployee((listView.SelectedItem as Employee).ID)).ShowDialog();
+                };
+            InsertBtn.Click +=
+                delegate
+                {
+                    Employee tempEmployee = new Employee();
+
+                    new EditWindow(tempEmployee).ShowDialog();
+
+                    test.InsetrtEmployee(tempEmployee);
                 };
         }
 
